@@ -1,12 +1,13 @@
-# Angular Udemy Course Notes
 
 ## Folder structure:
-- e2e - folder for end-to-end integration/scripted tests
-- node_modules - 3rd party libraries. never gets deployed.
+- e2e - folder for end-to-end integration/scripted tests; simulate a real user
+- node_modules - 3rd party libraries; purely for dev - never gets deployed...
 - src - actual source code for the app
-   - assets - icons, images
+   - assets - static assets for your app: icons, images
    - environments - config settings for different environments
    - main.ts - where the application starts
+   - polyfill.js - fills javascript gap for certain browsers
+- package.json - all the "imports"/dependencies for the application
 
 ## Typescript Overview
 - A superset of JS
@@ -33,6 +34,8 @@
 - You can use 'ng g c component-name' on command line to auto-generate the boilerplate code for the component
 - A component only deals with presentation logic ("the view") - use a service!
 - Create with 'ng g s service-name'
+
+- Directives manipulate the DOM
 
 ### Data & Events
 - "Property Binding" - binding a property of a DOM object to a field in a Angular component.
