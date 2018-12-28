@@ -6,12 +6,7 @@ var LikeComponent = /** @class */ (function () {
         this._isSelected = _isSelected;
     }
     LikeComponent.prototype.onClick = function () {
-        if (this._isSelected) {
-            this._likesCount--;
-        }
-        else {
-            this._likesCount++;
-        }
+        this._likesCount += (this._isSelected) ? -1 : 1;
         this._isSelected = !this._isSelected;
     };
     Object.defineProperty(LikeComponent.prototype, "likesCount", {

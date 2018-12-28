@@ -1,8 +1,8 @@
-export class CoursesService {
+export class CoursesService { 
+
+    courses = ["course1", "course2", "course3"];
 
     getCourses() { 
-        return ["course1", "course2", "course3"];
+        return this.courses;    
     }
-
-
 }

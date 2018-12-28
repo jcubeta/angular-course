@@ -39,8 +39,8 @@
 
 ### Data & Events
 - "Property Binding" - binding a property of a DOM object to a field in a Angular component.
-   - It only works one way: Angular -> DOM. If the DOM changes, tho, Angular won't update the component's field
-- "Attribute Binding" - in some cases, it isn't an exact match from DOM property to HTML attribute. In that case, you have to use the "attr:" prefix inside of the [] to map to the HTML attr.
+   - It only works one way: Component -> DOM. If the DOM changes, tho, Angular won't update the component's field
+- "Attribute Binding" - in some cases, it isn't an exact match from DOM property to HTML attribute. In that case, you have to use the "attr." prefix inside of the [] to map to the HTML attr.
 - "Class Binding" - [class.active]="fieldFromClass" is a condition that, if it evaluates to true, will attach the class to the element.
 - "Style Binding" - [style.backgroundColor={fieldFromClass}]
 - "Event Binding" - binds event on DOM object to method in the class (click)="onSave($event)". The $event object is a DOM event object that is know to Angular

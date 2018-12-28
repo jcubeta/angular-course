@@ -2,22 +2,25 @@ import { Component } from '@angular/core';
 import { CoursesService } from './courses.service';
 
 @Component({
-    selector: 'courses', // <courses> 
+    selector: 'courses',
     template: `
-       <button (click)="onSave($event)" [style.backgroundColor]="isActive ? 'blue' : 'white'" class="btn btn-primary" [class.active]="isActive">Save</button>
+        <button class="btn btn-primary" [class.active]="isActive" [style.backgroundColor]="isActive ? 'blue' : 'white'" (click)="onSave($event)"  >Save</button>
     `
 })
-export class CoursesComponent { 
+export class CoursesComponent {
 
-    isActive = true;
     title = "List of Courses";
     courses;
+    isActive = true;
 
-    constructor(service: CoursesService) {
+    constructor(service: CoursesService) { 
         this.courses = service.getCourses();
     }
 
     onSave($event) { 
-        console.log("Button was clicked", $event);
+        console.log("save clicked", $event);
     }
+
+     
+
 }

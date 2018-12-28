@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'favorite',
-  templateUrl: './favorite.component.html',
+  template: `
+    <h2>Favorite</h2>
+
+    <span class="fa" [class.fa-star]="isFavorite" [class.fa-star-half]="!isFavorite" (click)="spanClicked()"> </span>
+  `,
   styleUrls: ['./favorite.component.css']
 })
-export class FavoriteComponent implements OnInit {
+export class FavoriteComponent {
 
-  constructor() { }
+  isFavorite: boolean;
 
-  ngOnInit() {
+  spanClicked() { 
+    console.log("span was clicked");
+    this.isFavorite = !this.isFavorite;
   }
 
 }
