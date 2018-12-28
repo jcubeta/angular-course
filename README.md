@@ -39,14 +39,15 @@
 
 ### Data & Events
 - "Property Binding" - binding a property of a DOM object to a field in a Angular component.
+   - use [] brackets in the HTML: `<img [src]="myAttribute">` binds the "src" property of the img tag to the value of "myAttribute" in your component's class.
    - It only works one way: Component -> DOM. If the DOM changes, tho, Angular won't update the component's field
-- "Attribute Binding" - in some cases, it isn't an exact match from DOM property to HTML attribute. In that case, you have to use the "attr." prefix inside of the [] to map to the HTML attr.
-- "Class Binding" - [class.active]="fieldFromClass" is a condition that, if it evaluates to true, will attach the class to the element.
-- "Style Binding" - [style.backgroundColor={fieldFromClass}]
+   - in some cases, it isn't an exact match from DOM property to HTML attribute. In that case, you have to use the "attr." prefix inside of the [] to map to the HTML attr.
+- "Class Binding" - `[class.active]="fieldFromClass"` is a condition that, if it evaluates to true, will attach the class to the element.
+- "Style Binding" - `[style.backgroundColor={fieldFromClass}]`
 - "Event Binding" - binds event on DOM object to method in the class (click)="onSave($event)". The $event object is a DOM event object that is know to Angular
    - DOM events, by default, propgate up the DOM tree from the originating object
    - From angular, you can call $event.stopPropagataion() to stop the event from propagating futher up the tree
-- You can declare "template variables" <input #email> to simplify code when referencing DOM elements
+- You can declare "template variables" `<input #email>` to simplify code when referencing DOM elements
 - Two-way binding - [(ngModel)] - Angular adds this object to the DOM to enable 2-way binding
    - requires to add to the app.module.ts's "imports" and add: import { FormsModule } ...
 - "Pipes" help format data
@@ -60,12 +61,21 @@
 ## Building Custom Components
 - Components can have input and output properties. 
 - Create a public API for a component!
-- "Input" decorator can be used to define input properties
+- "Input" decorator can be used to define input properties into your component from the DOM (`@Input() myAttr;`)
 - "Output" properties allow you to create custom events
-   - EventEmitter() helps you with this
-   - You can define and export an interface for passing a custom object around with an event
+   - Use the "Output" decorator and instantiate a EventEmitter() object. Call `emit()` on this object
+     when you want to pass an event from your component.
+   - You can define and export an interface for passing a custom object around as an event
+- The `<ng-content>` element can be added to your HTML for your component that will allow the user to 
+provide custom markup. 
 
-
+## Directives
+- There are both structural and attribute directives:
+   - Structural - modify the structure of the DOM itself (prefixed with *)
+   - Attribute - modify the attributes of a DOM element
+- When to use them depends on the size of the DOM tree underneath of an element. If rendering a div is going
+to be costly, it's better to use the Structural directive (like `*ngIf`) to elimiate the hidden structure from the
+DOM, improving performance. Otherwise, you can use the `hidden` attribute of the div and it will be part of the DOM. 
 
 ### Misc Notes
 - The "Injectable" decorator tells Ang that you are allowing that class to be dependency injected 
